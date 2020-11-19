@@ -31,10 +31,10 @@
   </div>
   <div class="reviews">
     <h3>Reviews</h3>
-    <% @reviews.each do |review| %>
+    <% @reviews_cocktail.each do |review| %>
         <ul>
           <li>
-            <%= review.rating %>/5 - <%= review.content %> <%= link_to 'x', review_path(review), method: :delete %>
+            <%= review.rating %>/5 - <%= review.content %> <%= link_to 'x', cocktail_review_path(@cocktail, review), method: :delete, data: { confirm: "Are you sure?" } %>
           </li>
         </ul>
     <% end %>

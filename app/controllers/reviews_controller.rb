@@ -14,6 +14,9 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
+    cocktail = Cocktail.find(params[:cocktail_id])
+    
+    redirect_to cocktail_path(cocktail)
   end
 
   def get_params
