@@ -1,6 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: black;
+  transition: 0.5s background-color ease;
+  opacity: 0.5;
+  a {
+    color: white;
+    font-size: 24px;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+.navbar-lewagon-black {
+  opacity: 1;
 }
 
 .navbar-lewagon .navbar-collapse {

@@ -1,15 +1,30 @@
-<h1><%= @cocktail.name %></h1>
-<h3>Description</h3>
-<% @cocktail.doses.each do |dose|%>
-  <p>
-    <%= dose.description %>
-    <%= Ingredient.find(dose.ingredient_id).name %>
-  </p>
-<% end %>
+<div class="container">
+  <div class="grid-show">
+    <div class="card-product card-img-top">
+      <img src="<%= @cocktail.image_url%>%" alt="cocktail-image">
+      <h4 class="card-title"><%= @cocktail.name %></h4>
+    </div>
+    <div class="cocktail-description d-flex flex-column justify-content-between">
+      <div class="mt-4 ml-4">
+        <h3 class="mb-4">Ingredients</h3>
+        <% @cocktail.doses.each do |dose|%>
+          <ul>
+            <li>
+              <%= dose.description %>
+              <%= Ingredient.find(dose.ingredient_id).name %>
+          </li>
+          </ul>
+        <% end %>
+      </div>
+      <div>
+        <h4>Add a dose</h4>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description %>
+          <%= f.association :ingredient %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h3>Add a dose</h3>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.button :submit %>
-<% end %>

@@ -1,0 +1,14 @@
+.banner{
+  background-image: asset-url('bar1.jpg');
+  background-size: cover;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 140px;
+  }
+}
