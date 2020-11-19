@@ -34,7 +34,10 @@
     <% @reviews_cocktail.each do |review| %>
         <ul>
           <li>
-            <%= review.rating %>/5 - <%= review.content %> <%= link_to 'x', cocktail_review_path(@cocktail, review), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <%= review.content %> <%= link_to 'x', cocktail_review_path(@cocktail, review), method: :delete, data: { confirm: "Are you sure?" } %>
           </li>
         </ul>
     <% end %>
