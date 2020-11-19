@@ -1,8 +1,11 @@
 <div class="container">
   <div class="grid-show">
     <div class="card-product card-img-top">
+      <div class="d-flex justify-content-center">
       <img src="<%= @cocktail.image_url%>%" alt="cocktail-image">
+      </div>
       <h4 class="card-title"><%= @cocktail.name %></h4>
+      <%= link_to "delete", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
     <div class="cocktail-description d-flex flex-column justify-content-between">
       <div class="mt-4 ml-4">
@@ -17,13 +20,31 @@
         <% end %>
       </div>
       <div>
-        <h4>Add a dose</h4>
+        <h4>Add an Ingredient</h4>
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <%= f.input :description %>
-          <%= f.association :ingredient %>
-          <%= f.button :submit %>
+          <%= f.association :ingredient, input_html: { class: 'select2' } %>
+          <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="reviews">
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+        <ul>
+          <li>
+            <%= review.rating %>/5 - <%= review.content %> <%= link_to 'x', review_path(review), method: :delete %>
+          </li>
+        </ul>
+    <% end %>
+    <h4>Add a Review</h4>
+    <div>
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
     </div>
   </div>
 </div>
