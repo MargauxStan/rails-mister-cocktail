@@ -20,4 +20,8 @@ list.each do |ing|
   Ingredient.create!(name: ing.values[0])
 end
 
+Ingredient.create!(name: "Coke")
+Ingredient.create!(name: "Gin")
+Ingredient.create!(name: "Martini")
+
 puts "seeding done"
