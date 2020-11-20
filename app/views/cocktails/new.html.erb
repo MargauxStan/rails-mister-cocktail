@@ -2,7 +2,6 @@
   <h2>Add a new Cocoktail</h2>
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>
-    <%= f.input :image_url %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: 'bnt btn-primary' %>
   <% end %>
