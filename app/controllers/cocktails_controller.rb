@@ -11,6 +11,10 @@ class CocktailsController < ApplicationController
     @review = Review.new
   end
 
+  def search
+    @cocktail = Cocktail.where("name LIKE %#{params[:name]}%")
+  end
+
   def new
     @cocktail = Cocktail.new
   end
@@ -23,6 +27,12 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   def get_params
