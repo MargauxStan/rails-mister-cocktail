@@ -10,9 +10,30 @@ require("channels")
 
 import 'bootstrap';
 import { initSelect2 } from '../components/init_select2';
+import { initSweetalert } from '../components/init_sweetalert';
 
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Confirmation",
+    text: "Are you sure?",
+    icon: "warning"
+  },  (value) => {
+    if (value) {
+      const link = document.querySelector('#delete-link');
+      link.click();
+    }
+  });
+  initSweetalert('#sweet-delete', {
+    title: "Confirmation",
+    text: "Are you sure?",
+    icon: "warning"
+  },  (value) => {
+    if (value) {
+      const link = document.querySelector('#delete');
+      link.click();
+    }
+  });
 });
 
 

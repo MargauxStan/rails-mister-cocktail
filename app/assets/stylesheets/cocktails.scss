@@ -8,10 +8,11 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
   row-gap: 10px;
+  position: relative;
 }
 
 .cocktail-description{
-  color:white;
+  color: white;
   h3{
     font-family: 'Lobster', cursive;
     font-size: 30px;

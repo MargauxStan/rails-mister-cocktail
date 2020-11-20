@@ -5,7 +5,10 @@
       <%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
       </div>
       <h4 class="card-title"><%= @cocktail.name %></h4>
-      <%= link_to "delete", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
+      <div>
+        <button id="sweet-delete" class="cross-button"><i class="far fa-times-circle"></i></button>
+        <%= link_to "", cocktail_path(@cocktail), method: :delete, id:"delete", class: "hidden" %>
+      </div>
     </div>
     <div class="cocktail-description d-flex flex-column justify-content-between">
       <div class="mt-4 ml-4">
@@ -37,7 +40,7 @@
             <%review.rating.times do %>
               <i class="fas fa-star"></i>
             <% end %>
-            <%= review.content %> <%= link_to 'x', cocktail_review_path(@cocktail, review), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= review.content %> <button id="sweet-alert-demo" class="button">X</button> <%= link_to '', cocktail_review_path(@cocktail, review), method: :delete, id: "delete-link", class: "hidden"%>
           </li>
         </ul>
     <% end %>
